@@ -1,0 +1,25 @@
+{
+  "name": "faster-messageformat-parser",
+  "version": "0.1.0",
+  "description": "Faster MessageFormat that aims to be compatible with intl-messageformat-parser",
+  "main": "dist/index.js",
+  "module": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc && tsc -p tsconfig.cjs.json",
+    "prepublish": "npm run build",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "BSD-3-Clause",
+  "devDependencies": {
+    "@types/jest": "^24.0.15",
+    "jest": "^24.8.0",
+    "prettier": "^1.18.2",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "tslib": "^1.10.0"
+  }
+}

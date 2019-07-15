@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`escaped nested message 1`] = `
+Object {
+  "status": true,
+  "value": Array [
+    Object {
+      "type": 0,
+      "value": "      ",
+    },
+    Object {
+      "offset": 0,
+      "options": Object {
+        "one": Object {
+          "value": Array [
+            Object {
+              "type": 0,
+              "value": "item}",
+            },
+          ],
+        },
+        "other": Object {
+          "value": Array [
+            Object {
+              "type": 0,
+              "value": "items}",
+            },
+          ],
+        },
+      },
+      "pluralType": "cardinal",
+      "type": 6,
+      "value": "itemCount",
+    },
+  ],
+}
+`;
+
+exports[`trivial 1`] = `
+Object {
+  "status": true,
+  "value": Array [
+    Object {
+      "type": 0,
+      "value": "      Cart: ",
+    },
+    Object {
+      "type": 1,
+      "value": "itemCount",
+    },
+    Object {
+      "type": 0,
+      "value": " ",
+    },
+    Object {
+      "offset": 0,
+      "options": Object {
+        "one": Object {
+          "value": Array [
+            Object {
+              "type": 0,
+              "value": "item",
+            },
+          ],
+        },
+        "other": Object {
+          "value": Array [
+            Object {
+              "type": 0,
+              "value": "items",
+            },
+          ],
+        },
+      },
+      "pluralType": "cardinal",
+      "type": 6,
+      "value": "itemCount",
+    },
+  ],
+}
+`;

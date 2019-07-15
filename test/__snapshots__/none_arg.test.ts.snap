@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`trivial 1`] = `
+Object {
+  "status": true,
+  "value": Array [
+    Object {
+      "type": 1,
+      "value": "0",
+    },
+  ],
+}
+`;
+
+exports[`trivial 2`] = `
+Object {
+  "status": true,
+  "value": Array [
+    Object {
+      "type": 1,
+      "value": "arg",
+    },
+  ],
+}
+`;
+
+exports[`trivial 3`] = `
+Object {
+  "status": true,
+  "value": Array [
+    Object {
+      "type": 0,
+      "value": "hello ",
+    },
+    Object {
+      "type": 1,
+      "value": "name",
+    },
+  ],
+}
+`;

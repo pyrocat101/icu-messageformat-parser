@@ -29,6 +29,11 @@ export const enum TYPE {
   plural,
 }
 
+export const enum SKELETON_TYPE {
+  number,
+  date,
+}
+
 export interface LocationDetails {
   offset: number;
   line: number;
@@ -48,13 +53,13 @@ export interface BaseElement<T extends TYPE> {
 export type LiteralElement = BaseElement<TYPE.literal>;
 export type ArgumentElement = BaseElement<TYPE.argument>;
 
-export interface SimpleFormatElement<T extends TYPE> extends BaseElement<T> {
-  style?: string;
+export interface SimpleFormatElement<T extends TYPE, S extends Skeleton> extends BaseElement<T> {
+  style?: string | S;
 }
 
-export type NumberElement = SimpleFormatElement<TYPE.number>;
-export type DateElement = SimpleFormatElement<TYPE.date>;
-export type TimeElement = SimpleFormatElement<TYPE.time>;
+export type NumberElement = SimpleFormatElement<TYPE.number, NumberSkeleton>;
+export type DateElement = SimpleFormatElement<TYPE.date, DateSkeleton>;
+export type TimeElement = SimpleFormatElement<TYPE.time, DateSkeleton>;
 
 export interface SelectOption {
   id: string;
@@ -78,6 +83,23 @@ export interface PluralElement extends BaseElement<TYPE.plural> {
   offset: number;
   pluralType: Intl.PluralRulesOptions['type'];
 }
+
+export interface SkeletonToken {
+  stem: string;
+  options: string[];
+}
+
+export interface NumberSkeleton {
+  type: SKELETON_TYPE.number;
+  tokens: SkeletonToken[];
+}
+
+export interface DateSkeleton {
+  type: SKELETON_TYPE.date;
+  pattern: string;
+}
+
+export type Skeleton = NumberSkeleton | DateSkeleton;
 
 export type MessageFormatElement =
   | LiteralElement

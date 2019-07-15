@@ -2,14 +2,23 @@
 
 exports[`does not start quoted text if apostrophe does not immediately precede a character 1`] = `
 Object {
-  "input": Object {
-    "pos": 9,
-    "text": "'a}a''b}'",
-  },
-  "result": Array [
+  "status": true,
+  "value": Array [
     Object {
       "type": 0,
-      "value": "'a}a'b}'",
+      "value": "'aa'b'",
+    },
+  ],
+}
+`;
+
+exports[`does not start quoted text if apostrophe does not immediately precede a character 2`] = `
+Object {
+  "status": true,
+  "value": Array [
+    Object {
+      "type": 0,
+      "value": "I don't know",
     },
   ],
 }
@@ -17,11 +26,8 @@ Object {
 
 exports[`starts quoted text if apostrophe immediately precedes a character 1`] = `
 Object {
-  "input": Object {
-    "pos": 8,
-    "text": "'{a''b}'",
-  },
-  "result": Array [
+  "status": true,
+  "value": Array [
     Object {
       "type": 0,
       "value": "{a'b}",
@@ -30,13 +36,46 @@ Object {
 }
 `;
 
+exports[`starts quoted text if apostrophe immediately precedes a character 2`] = `
+Object {
+  "status": true,
+  "value": Array [
+    Object {
+      "type": 0,
+      "value": "}a'b{",
+    },
+  ],
+}
+`;
+
+exports[`starts quoted text if apostrophe immediately precedes a character 3`] = `
+Object {
+  "status": true,
+  "value": Array [
+    Object {
+      "type": 0,
+      "value": "aaa{",
+    },
+  ],
+}
+`;
+
+exports[`starts quoted text if apostrophe immediately precedes a character 4`] = `
+Object {
+  "status": true,
+  "value": Array [
+    Object {
+      "type": 0,
+      "value": "aaa}",
+    },
+  ],
+}
+`;
+
 exports[`treats double apostrophes as one apostrophe 1`] = `
 Object {
-  "input": Object {
-    "pos": 4,
-    "text": "a''b",
-  },
-  "result": Array [
+  "status": true,
+  "value": Array [
     Object {
       "type": 0,
       "value": "a'b",
@@ -47,16 +86,12 @@ Object {
 
 exports[`unescaped string literals 1`] = `
 Object {
-  "input": Object {
-    "pos": 13,
-    "text": "line1
-  test2",
-  },
-  "result": Array [
+  "status": true,
+  "value": Array [
     Object {
       "type": 0,
       "value": "line1
-  test2",
+  line2",
     },
   ],
 }

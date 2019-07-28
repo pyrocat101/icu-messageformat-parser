@@ -29,7 +29,7 @@ import {
   NumberSkeleton,
   SkeletonToken,
   SKELETON_TYPE,
-} from './ast';
+} from './types';
 
 /**
  * MessageFormat EBNF:
@@ -158,7 +158,7 @@ const numberArgRest: Parser<Omit<NumberElement, 'value'>> = seqObj(
     string(',')
       .then(ws)
       .then(numberArgStyle)
-      .fallback(undefined),
+      .fallback(null),
   ]
 );
 
@@ -170,7 +170,7 @@ const dateOrTimeArgRest: Parser<Omit<DateElement | TimeElement, 'value'>> = seqO
     string(',')
       .then(ws)
       .then(dateOrTimeArgSkeleton)
-      .fallback(undefined),
+      .fallback(null),
   ]
 );
 

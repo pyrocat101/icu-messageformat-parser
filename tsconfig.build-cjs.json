@@ -3,6 +3,6 @@
   "compilerOptions": {
     // Build CommonJS for Node.js distribution.
     "module": "commonjs",
-    "rootDir": "src"
+    "outDir": "dist"
   }
 }

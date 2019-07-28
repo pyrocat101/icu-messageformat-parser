@@ -1,4 +1,4 @@
-export const enum TYPE {
+export enum TYPE {
   /**
    * Raw text
    */
@@ -54,7 +54,7 @@ export type LiteralElement = BaseElement<TYPE.literal>;
 export type ArgumentElement = BaseElement<TYPE.argument>;
 
 export interface SimpleFormatElement<T extends TYPE, S extends Skeleton> extends BaseElement<T> {
-  style?: string | S;
+  style?: string | S | null;
 }
 
 export type NumberElement = SimpleFormatElement<TYPE.number, NumberSkeleton>;
@@ -109,3 +109,43 @@ export type MessageFormatElement =
   | TimeElement
   | SelectElement
   | PluralElement;
+
+/**
+ * Type Guards
+ */
+export function isLiteralElement(el: MessageFormatElement): el is LiteralElement {
+  return el.type === TYPE.literal;
+}
+export function isArgumentElement(el: MessageFormatElement): el is ArgumentElement {
+  return el.type === TYPE.argument;
+}
+export function isNumberElement(el: MessageFormatElement): el is NumberElement {
+  return el.type === TYPE.number;
+}
+export function isDateElement(el: MessageFormatElement): el is DateElement {
+  return el.type === TYPE.date;
+}
+export function isTimeElement(el: MessageFormatElement): el is TimeElement {
+  return el.type === TYPE.time;
+}
+export function isSelectElement(el: MessageFormatElement): el is SelectElement {
+  return el.type === TYPE.select;
+}
+export function isPluralElement(el: MessageFormatElement): el is PluralElement {
+  return el.type === TYPE.plural;
+}
+
+export function createLiteralElement(value: string): LiteralElement {
+  return {
+    type: TYPE.literal,
+    value,
+  };
+}
+
+export function createNumberElement(value: string, style?: string): NumberElement {
+  return {
+    type: TYPE.number,
+    value,
+    style,
+  };
+}
